@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="./assets/styles/styles.css">
     <script src="./assets/js/script.js" defer type="module"></script>
     <script src="./assets/js/showScores.js" defer type="module"></script>
+    <script src="./assets/js/theme.js"></script>
 </head>
 <body>
     <header>
         <nav>
             <button id="show-scores-btn" class="nav-link">View high scores</button>
+            <img src="./assets/images/dark.svg" id="theme" onclick="toggleTheme()"/>
         </nav>
         <p class="time" id="time-container">Time: <span id="time">75</span></p>
     </header>

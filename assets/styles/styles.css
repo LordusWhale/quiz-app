@@ -5,19 +5,25 @@
     --highlight: #D496EF;
     --text: #000000;
 }
-
+[data-theme ="dark"]{
+    --primary: #211248;
+    --secondary: #4c2ba0;
+    --highlight: #482994;
+    --text: white;
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
+    color: var(--text);
 }
 
 .button {
     background-color: var(--secondary);
     border: 0;
     font-size: 1.8rem;
-    color: var(--primary);
+    color: white;
     padding: 20px;
     border-radius: 20px;
     cursor: pointer;
@@ -33,13 +39,22 @@ header  {
     display: flex;
     justify-content: space-between;
 }
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
 .nav-link {
-    color: var(--highlight);
+    color: var(--text);
     background-color: transparent;
     border: none;
     padding: 20px;
     font-size: 1.4rem;
     cursor: pointer;
+}
+#theme {
+    width: 30px;
 }
 .time {
     visibility: hidden;
@@ -57,7 +72,7 @@ main {
     justify-content: center;
     align-items: center;
     background: rgb(255,255,255);
-    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(53,28,117,0.3673670151654411) 100%);
+    background: linear-gradient(180deg, var(--primary) 0%, var(--highlight) 100%);
 }
 .home-page {
     display: flex;
