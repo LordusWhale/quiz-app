@@ -1,6 +1,6 @@
 import { questions } from "./data/data.js";
 import { homePage, questionPage, resultsPage } from "./lib/pages.js";
-import { addObjectToArrayLS } from "./lib/localStorage.js";
+import { addObjectToArrayLS, createID } from "./lib/localStorage.js";
 import { showError, sleep } from "./lib/functions.js";
 
 let startQuizBtn = document.getElementById("start-quiz");
@@ -92,7 +92,7 @@ const submitScore = async (e) => {
   if (initials.length < 2) {
     await showError("Enter more than two letters");
   } else {
-    const newScore = { initials, score: currentTime };
+    const newScore = { initials, score: currentTime, id: createID('score') };
     addObjectToArrayLS("score", newScore);
     resetVariables();
     mainContainer.innerHTML = homePage();
