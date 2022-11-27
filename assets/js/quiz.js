@@ -17,7 +17,6 @@ const timerFunctions = {
     timer = setInterval(() => {
       currentTime--;
       if (currentTime === 0) {
-        stopTimer();
         endQuizPage();
         return;
       }
