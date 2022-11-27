@@ -1,5 +1,5 @@
-import { getObjectFromLS, deleteAllLS } from "./localStorage.js";
-import { scoresListPage } from "./pages.js";
+import { getObjectFromLS, deleteAllLS } from "./lib/localStorage.js";
+import { scoresListPage } from "./lib/pages.js";
 
 const scoresPage = document.getElementById('scores-page');
 const showScoresBtn = document.getElementById('show-scores-btn');

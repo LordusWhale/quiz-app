@@ -1,6 +1,6 @@
-import { questions } from "./data.js";
-import { homePage, questionPage, resultsPage } from "./pages.js";
-import {addObjectToArrayLS} from "./localStorage.js";
+import { questions } from "./data/data.js";
+import { homePage, questionPage, resultsPage } from "./lib/pages.js";
+import {addObjectToArrayLS} from "./lib/localStorage.js";
 
 
 let startQuizBtn = document.getElementById('start-quiz');
