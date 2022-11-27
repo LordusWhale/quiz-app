@@ -8,11 +8,13 @@ const time = document.getElementById("time");
 const timeContainer = document.getElementById("time-container");
 const mainContainer = document.querySelector("main");
 
+// Default variables
 let currentTime = 75;
-let pageIndex = 0;
+let pageIndex = 0; // Used to iterate through questions array
 let timer;
 const timerFunctions = {
   startTimer: () => {
+    // Showing timer in HTML and subtracting one every second
     timeContainer.style.visibility = "visible";
     timer = setInterval(() => {
       currentTime--;
@@ -32,14 +34,16 @@ const timerFunctions = {
     clearInterval(timer);
   },
 };
-
+// Start of quiz, called when pressing start quiz on main page
 const startQuiz = () => {
   timerFunctions.startTimer();
   showQuizPage();
 };
 
 const showQuizPage = () => {
-  mainContainer.innerHTML = questionPage(questions[pageIndex]);
+  mainContainer.innerHTML = questionPage(questions[pageIndex]); // Showing the questions to the main page
+
+  //Getting answer buttons and adding event listeners to check if correct
   const answerBtns = document.querySelectorAll(".button.answer-btn");
   answerBtns.forEach((btn) => {
     btn.addEventListener("click", answerBtnClick);
@@ -49,13 +53,14 @@ const showQuizPage = () => {
 const answerBtnClick = async (e) => {
   disableButtons();
   showCorrectAnswer();
-  timerFunctions.pauseTimer();
+  timerFunctions.pauseTimer(); // Pausing timer to not change score when showing results
   await sleep(1000);
   timerFunctions.startTimer();
   await sleep(500);
-  if (e.target.innerHTML !== questions[pageIndex].correct) currentTime -= 10;
-  pageIndex++;
+  if (e.target.innerHTML !== questions[pageIndex].correct) currentTime -= 10; // Subracting ten if answer is not correct
+  pageIndex++; // Changing to next question
   if (!questions[pageIndex]) {
+    // If no more questions stop quiz
     endQuizPage();
     return;
   }
@@ -63,6 +68,7 @@ const answerBtnClick = async (e) => {
 };
 
 const disableButtons = () => {
+  // Disables answer buttons
   const allButtons = document.querySelectorAll(".button.answer-btn");
   allButtons.forEach((button) => {
     button.setAttribute("disabled", "true");
@@ -80,6 +86,7 @@ const showCorrectAnswer = () => {
 };
 
 const endQuizPage = () => {
+  // End of quiz function, stopping timer and showing results page
   timerFunctions.stopTimer();
   mainContainer.innerHTML = resultsPage(currentTime);
   const submitScoreBtn = document.getElementById("submit-score-btn");
@@ -87,17 +94,19 @@ const endQuizPage = () => {
 };
 
 const submitScore = async (e) => {
+  //Saving score to local storage, resetting game variable and showing main page
   const initials = document.getElementById("initials").value;
   if (initials.length < 2) {
     await showError("Enter more than two letters");
   } else {
-    const newScore = { initials, score: currentTime, id: createID('score') };
+    const newScore = { initials, score: currentTime, id: createID("score") };
     addObjectToArrayLS("score", newScore);
     resetVariables();
     mainContainer.innerHTML = homePage();
     const scoresPage = document.getElementById("scores-page");
     scoresPage.style.visibility = "visible";
     startQuizBtn = document.getElementById("start-quiz");
+    // Resetting start button
     startQuizBtn.onclick = startQuiz;
   }
 };

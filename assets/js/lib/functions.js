@@ -1,5 +1,5 @@
 
-
+// Drops down error message
 export const showError = async (message) => {
     const errorMessage = document.getElementById('error')
     errorMessage.innerText = message;
@@ -11,6 +11,7 @@ export const showError = async (message) => {
     errorMessage.style.transform = 'translateY(0)';
 }
 
+// Simple 'sleep' function
 export const sleep = async (time) => {
     await new Promise(r=>setTimeout(r, time));
 }

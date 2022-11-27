@@ -1,6 +1,7 @@
 
 
 window.onload = () => {
+    // Checks if theme is set and changes it, default is light theme
     const theme = localStorage.getItem('theme');
     if (!theme) return;
     if (theme === "dark") {
@@ -20,6 +21,6 @@ function toggleTheme() {
       currentTheme === "dark"
         ? "./assets/images/dark.svg"
         : "./assets/images/light.svg";
-      themeSVG.setAttribute('src', attribute);
+      themeSVG.setAttribute('src', attribute); // Changing SVG img source.
   }
   

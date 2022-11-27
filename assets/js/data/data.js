@@ -1,3 +1,8 @@
+/*
+    Default questions, answers could be there own objects with a correct value. 
+     Since the page only has one quiz, chose to simply compare the strings.
+*/
+
 export const questions = [
   {
     question: "Commonly used data types do NOT include:",

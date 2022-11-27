@@ -1,3 +1,6 @@
+
+// Local storage functions
+
 export const addObjectToArrayLS = (lsKey, item) => {
   const ls = getObjectFromLS(lsKey);
   if (!ls) {
@@ -22,6 +25,7 @@ export const deleteAllLS = (lsKey) => {
   localStorage.setItem(lsKey, null);
 };
 
+// Create unique ID that can be used to delete.
 export const createID =(lsKey) => {
   const ls = getObjectFromLS(lsKey);
   if (!ls) return 0;

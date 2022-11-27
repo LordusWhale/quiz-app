@@ -1,3 +1,9 @@
+/*
+    Pages used for each section of the quiz. Used to allow for potential future additions such as creating your own quiz.
+*/
+
+
+
 export const questionPage = (question) => {
   return `
 <section class="card-container">

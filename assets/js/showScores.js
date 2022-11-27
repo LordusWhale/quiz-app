@@ -22,21 +22,22 @@ clearScoresBtn.onclick = () => {
 }
 
 
-
+// Simple observer to check if styles change in score page: If the styles change, the page is open.
 const scorePageOpenObserver = new MutationObserver(entries=>{
     entries.forEach(entry=>{
         createScoreList();
-
     })
 })
 const createScoreList = () => {
     scoresList.innerHTML = "";
     let scores = getObjectFromLS('score');
     if (!scores) return;
+    // Sorting in descending order - highest to lowest
     scores.sort((a, b)=>{
         return b.score-a.score;
     })
     scoresList.innerHTML = scoresListPage(scores);
+    // Delete single scores
     const deleteBtns = document.querySelectorAll('.delete-score-btn');
     deleteBtns.forEach(btn=>{
         btn.onclick = onDelete;
@@ -49,6 +50,7 @@ const onDelete = (e) => {
     createScoreList();
 }
 
+// Observing the scores page.
 scorePageOpenObserver.observe(scoresPage, {
     attributes: true,
     attributeFilter: ["style"],
