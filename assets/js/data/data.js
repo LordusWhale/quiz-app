@@ -1,32 +1,28 @@
 export const questions = [
   {
-    question: "Question",
-    answers: ["question1", "question2", "question3", "question4"],
-    correct: "question1",
+    question: "Commonly used data types do NOT include:",
+    answers: ["Strings", "Booleans", "Alerts", "Numbers"],
+    correct: "Alerts",
   },
   {
-    question: "Question1",
-    answers: ["question1", "question2", "question3", "question4"],
-    correct: "question2",
+    question: "The condition in an if/else statement is enclosed with ____.",
+    answers: ["Quotes", "Curly brackets", "Parenthesis", "Square brackets"],
+    correct: "Curly brackets",
   },
   {
-    question: "Question2",
-    answers: ["question1", "question2", "question3", "question4"],
-    correct: "question3",
+    question: "Arrays in JavaScript can be used to store ____.",
+    answers: ["Numbers and strings", "Other arrays", "Booleans", "All of the above"],
+    correct: "All of the above",
   },
   {
-    question: "Question3",
-    answers: ["question1", "question2", "question3", "question4"],
-    correct: "question4",
+    question: "String values must be enclosed within ____ when being assigned to variables.",
+    answers: ["Commas", "Curly brackets", "Quotes", "Parenthesis"],
+    correct: "Quotes",
   },
   {
-    question: "Question4",
-    answers: ["question1", "question2", "question3", "question4"],
-    correct: "question1",
+    question: "A very useful tooled used during development and debugging for printing content to the debugger is:",
+    answers: ["JavaScript", "Terminal/bash", "For loops", "console.log"],
+    correct: "console.log",
   },
-  {
-    question: "Question5",
-    answers: ["question1", "question2", "question3", "question4"],
-    correct: "question2",
-  },
+
 ];
