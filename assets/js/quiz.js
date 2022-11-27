@@ -19,6 +19,7 @@ const timerFunctions = {
     timer = setInterval(() => {
       currentTime--;
       if (currentTime === 0) {
+        // End quiz if time is 0
         endQuizPage();
         return;
       }
@@ -43,7 +44,7 @@ const startQuiz = () => {
 const showQuizPage = () => {
   mainContainer.innerHTML = questionPage(questions[pageIndex]); // Showing the questions to the main page
 
-  //Getting answer buttons and adding event listeners to check if correct
+  // Getting answer buttons and adding event listeners to check if correct
   const answerBtns = document.querySelectorAll(".button.answer-btn");
   answerBtns.forEach((btn) => {
     btn.addEventListener("click", answerBtnClick);
@@ -57,7 +58,8 @@ const answerBtnClick = async (e) => {
   await sleep(1000);
   timerFunctions.startTimer();
   await sleep(500);
-  if (e.target.innerHTML !== questions[pageIndex].correct) currentTime -= 10; // Subracting ten if answer is not correct
+  // Compares text value of button with correct value of question
+  if (e.target.innerHTML !== questions[pageIndex].correct) currentTime -= 10;
   pageIndex++; // Changing to next question
   if (!questions[pageIndex]) {
     // If no more questions stop quiz
@@ -77,7 +79,8 @@ const disableButtons = () => {
 const showCorrectAnswer = () => {
   const allButtons = document.querySelectorAll(".button.answer-btn");
   allButtons.forEach((button) => {
-    if (button.innerHTML !== questions[pageIndex].correct) {
+    
+    if (button.innerHTML !== questions[pageIndex].correct) { 
       button.style.backgroundColor = "red";
     } else {
       button.style.backgroundColor = "green";
