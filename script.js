@@ -1,5 +1,7 @@
 import { questions } from "./data.js";
 import { questionPage, resultsPage } from "./pages.js";
+import {addObjectToArrayLS} from "./localStorage.js";
+
 
 const startQuizBtn = document.getElementById('start-quiz');
 const time = document.getElementById('time');
@@ -18,6 +20,7 @@ const startTimer = () => {
         currentTime --;
         if (currentTime === 0){
             stopTimer();
+            endQuizPage();
             return;
         }
         time.innerText = currentTime;
@@ -47,7 +50,10 @@ const showQuizPage = () => {
 const answerBtnClick = (e) => {
     if (e.target.innerHTML !== questions[pageIndex].correct) currentTime -=10;
     pageIndex ++;
-    if (!questions[pageIndex]) endQuizPage(); 
+    if (!questions[pageIndex]) {
+        endQuizPage(); 
+        return;
+    } 
     showQuizPage();
 }
 
@@ -55,7 +61,14 @@ const answerBtnClick = (e) => {
 const endQuizPage = () => {
     stopTimer();
     main.innerHTML = resultsPage(currentTime);
-   
+    const submitScoreBtn = document.getElementById('submit-score-btn');
+    submitScoreBtn.onclick = submitScore;
+}
+
+const submitScore = (e) => {
+    const initials = document.getElementById('initials').value;
+    const newScore = {initials, score: currentTime};
+    addObjectToArrayLS("score", newScore);
 }
 
 startQuizBtn.onclick = startQuiz;
