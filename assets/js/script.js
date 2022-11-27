@@ -6,7 +6,7 @@ import {addObjectToArrayLS} from "./localStorage.js";
 const startQuizBtn = document.getElementById('start-quiz');
 const time = document.getElementById('time');
 const timeContainer = document.getElementById('time-container');
-const main = document.querySelector('main');
+const mainContainer = document.querySelector('main');
 
 
 let timer;
@@ -39,7 +39,7 @@ const startQuiz = () => {
 }
 
 const showQuizPage = () => {
-    main.innerHTML = questionPage(questions[pageIndex]);
+    mainContainer.innerHTML = questionPage(questions[pageIndex]);
     const answerBtns = document.querySelectorAll('.button.answer-btn');
     answerBtns.forEach(btn=>{
         btn.addEventListener('click', answerBtnClick);
@@ -60,7 +60,7 @@ const answerBtnClick = (e) => {
 
 const endQuizPage = () => {
     stopTimer();
-    main.innerHTML = resultsPage(currentTime);
+    mainContainer.innerHTML = resultsPage(currentTime);
     const submitScoreBtn = document.getElementById('submit-score-btn');
     submitScoreBtn.onclick = submitScore;
 }
@@ -69,7 +69,7 @@ const submitScore = (e) => {
     const initials = document.getElementById('initials').value;
     const newScore = {initials, score: currentTime};
     addObjectToArrayLS("score", newScore);
-    main.innerHTML = homePage();
+    mainContainer.innerHTML = homePage();
     const scoresPage = document.getElementById('scores-page');
     scoresPage.style.visibility = "visible";
 }
