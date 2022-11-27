@@ -3,7 +3,7 @@ import { homePage, questionPage, resultsPage } from "./pages.js";
 import {addObjectToArrayLS} from "./localStorage.js";
 
 
-const startQuizBtn = document.getElementById('start-quiz');
+let startQuizBtn = document.getElementById('start-quiz');
 const time = document.getElementById('time');
 const timeContainer = document.getElementById('time-container');
 const mainContainer = document.querySelector('main');
@@ -69,9 +69,17 @@ const submitScore = (e) => {
     const initials = document.getElementById('initials').value;
     const newScore = {initials, score: currentTime};
     addObjectToArrayLS("score", newScore);
+    resetVariables();
     mainContainer.innerHTML = homePage();
     const scoresPage = document.getElementById('scores-page');
     scoresPage.style.visibility = "visible";
+    startQuizBtn = document.getElementById('start-quiz');
+    startQuizBtn.onclick = startQuiz;
+}
+
+function resetVariables() {
+    pageIndex = 0;
+    currentTime = 75;
 }
 
 startQuizBtn.onclick = startQuiz;
