@@ -1,6 +1,7 @@
 import { questions } from "./data/data.js";
 import { homePage, questionPage, resultsPage } from "./lib/pages.js";
 import { addObjectToArrayLS } from "./lib/localStorage.js";
+import { showError, sleep } from "./lib/functions.js";
 
 let startQuizBtn = document.getElementById("start-quiz");
 const time = document.getElementById("time");
@@ -33,7 +34,6 @@ const timerFunctions = {
   },
 };
 
-
 const startQuiz = () => {
   timerFunctions.startTimer();
   showQuizPage();
@@ -51,9 +51,9 @@ const answerBtnClick = async (e) => {
   disableButtons();
   showCorrectAnswer();
   timerFunctions.pauseTimer();
-  await new Promise((r) => setTimeout(r, 1000));
+  sleep(1000);
   timerFunctions.startTimer();
-  await new Promise(r=>setTimeout(r, 500));
+  sleep(500);
   if (e.target.innerHTML !== questions[pageIndex].correct) currentTime -= 10;
   pageIndex++;
   if (!questions[pageIndex]) {
@@ -87,16 +87,20 @@ const endQuizPage = () => {
   submitScoreBtn.onclick = submitScore;
 };
 
-const submitScore = (e) => {
+const submitScore = async (e) => {
   const initials = document.getElementById("initials").value;
-  const newScore = { initials, score: currentTime };
-  addObjectToArrayLS("score", newScore);
-  resetVariables();
-  mainContainer.innerHTML = homePage();
-  const scoresPage = document.getElementById("scores-page");
-  scoresPage.style.visibility = "visible";
-  startQuizBtn = document.getElementById("start-quiz");
-  startQuizBtn.onclick = startQuiz;
+  if (initials.length < 2) {
+    await showError("Enter more than two letters");
+  } else {
+    const newScore = { initials, score: currentTime };
+    addObjectToArrayLS("score", newScore);
+    resetVariables();
+    mainContainer.innerHTML = homePage();
+    const scoresPage = document.getElementById("scores-page");
+    scoresPage.style.visibility = "visible";
+    startQuizBtn = document.getElementById("start-quiz");
+    startQuizBtn.onclick = startQuiz;
+  }
 };
 
 function resetVariables() {
