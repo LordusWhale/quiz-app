@@ -42,6 +42,7 @@ header  {
     cursor: pointer;
 }
 .time {
+    visibility: hidden;
     color: var(--text);
     background-color: transparent;
     border: none;
