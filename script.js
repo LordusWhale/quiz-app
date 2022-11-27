@@ -25,6 +25,15 @@ const startQuiz = () => {
 
 const showQuizPage = () => {
     main.innerHTML = questionPage(questions[0]);
+    const answerBtns = document.querySelectorAll('.button.answer-btn');
+    answerBtns.forEach(btn=>{
+        btn.addEventListener('click', answerBtnClick);
+    })
+}
+
+
+const answerBtnClick = (e) => {
+    if (e.target.innerHTML !== questions[0].correct) currentTime -=10;
 }
 
 
