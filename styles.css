@@ -59,7 +59,7 @@ main {
     background: rgb(255,255,255);
     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(53,28,117,0.3673670151654411) 100%);
 }
-section {
+.home-page {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,4 +67,37 @@ section {
     max-width: 50%;
     text-align: center;
     gap: 50px;
+}
+
+.card-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    font-size: clamp(1rem, 2vw, 1.8rem);
+    width: 80%;
+    background-color: var(--highlight);
+    border-radius: 20px;
+    padding: 4em;
+}
+.card > h1 {
+    border-bottom: 1px solid black;
+}
+.answer-btn {
+    padding: 10px 40px;
+    border-radius: 10px;
+    font-size: clamp(1rem, 2vw, 1.8rem);
+}
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
