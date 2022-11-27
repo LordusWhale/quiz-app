@@ -120,7 +120,7 @@ ul {
 }
 
 .scores-page {
-    visibility: hidden;
+    /* visibility: hidden; */
     position: absolute;
     inset: 0;
     width: 100%;
@@ -141,8 +141,15 @@ ul {
     flex-direction: column;
     gap: 20px;
 }
+.scores-container > div >  button {
+    padding: 10px 20px;
+}
 .scores-container > ul {
     width: 100%;
     text-align: left;
     font-size: 1.2em;
+}
+.scores-container > ul > li {
+    background-color: var(--highlight);
+    padding: 1em;
 }
