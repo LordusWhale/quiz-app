@@ -1,6 +1,4 @@
 
-
-
 :root {
     --primary: #FFF;
     --secondary: #351C75;
@@ -12,4 +10,26 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+header  {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.nav-link {
+    color: var(--highlight);
+    background-color: transparent;
+    border: none;
+    padding: 20px;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+.time {
+    color: var(--text);
+    background-color: transparent;
+    border: none;
+    padding: 20px;
+    font-size: 3rem;
 }
