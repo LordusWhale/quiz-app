@@ -55,6 +55,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(53,28,117,0.3673670151654411) 100%);
 }
 section {
     display: flex;
