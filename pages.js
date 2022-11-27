@@ -14,3 +14,14 @@ export const questionPage = (question) => {
 </section>
     `;
 };
+
+export const resultsPage = (score) => {
+    return `
+    <section class="results-page">
+        <h1>Your final scores is ${score}</h1>
+        <label>Enter your initials</label>
+        <input type="text" />
+        <button class="button" id="enter-score-btn">Submit</button>
+    </section>
+    `
+}
