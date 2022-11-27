@@ -29,7 +29,7 @@ export const resultsPage = (score) => {
 export const scoresListPage = (userScores) => {
     return `
         ${userScores.map(score=>{
-            return `<li>${score.initials} - ${score.score}</li>`
+            return `<li>${score.initials} - ${score.score} <button class="delete-score-btn" data-id="${score.id}">Delete</button></li>`
         }).join('')}
     `
 } 

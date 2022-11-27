@@ -1,4 +1,4 @@
-import { getObjectFromLS, deleteAllLS } from "./lib/localStorage.js";
+import { getObjectFromLS, deleteAllLS, deleteObjectFromArray } from "./lib/localStorage.js";
 import { scoresListPage } from "./lib/pages.js";
 
 const scoresPage = document.getElementById('scores-page');
@@ -25,16 +25,29 @@ clearScoresBtn.onclick = () => {
 
 const scorePageOpenObserver = new MutationObserver(entries=>{
     entries.forEach(entry=>{
-        scoresList.innerHTML = "";
-        let scores = getObjectFromLS('score');
-        if (!scores) return;
-        scores.sort((a, b)=>{
-            return b.score-a.score;
-        })
-        scoresList.innerHTML = scoresListPage(scores);
+        createScoreList();
+
     })
 })
+const createScoreList = () => {
+    scoresList.innerHTML = "";
+    let scores = getObjectFromLS('score');
+    if (!scores) return;
+    scores.sort((a, b)=>{
+        return b.score-a.score;
+    })
+    scoresList.innerHTML = scoresListPage(scores);
+    const deleteBtns = document.querySelectorAll('.delete-score-btn');
+    deleteBtns.forEach(btn=>{
+        btn.onclick = onDelete;
+    })
+}
 
+const onDelete = (e) => {
+    const id = parseInt(e.target.dataset.id);
+    deleteObjectFromArray('score', id);
+    createScoreList();
+}
 
 scorePageOpenObserver.observe(scoresPage, {
     attributes: true,

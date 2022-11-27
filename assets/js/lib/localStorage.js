@@ -9,10 +9,24 @@ export const addObjectToArrayLS = (lsKey, item) => {
 };
 
 
+export const deleteObjectFromArray = (lsKey, id) => {
+  const ls = getObjectFromLS(lsKey);
+  if (!ls) return;
+  const newArray = ls.filter(item=>{
+    return item.id !== id;
+  })
+  localStorage.setItem(lsKey, JSON.stringify(newArray));
+}
+
 export const deleteAllLS = (lsKey) => {
   localStorage.setItem(lsKey, null);
 };
 
+export const createID =(lsKey) => {
+  const ls = getObjectFromLS(lsKey);
+  if (!ls) return 0;
+  return ls.length;
+}
 
 export const getObjectFromLS = (lsKey) => {
   const ls = JSON.parse(localStorage.getItem(lsKey));
