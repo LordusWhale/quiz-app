@@ -51,9 +51,9 @@ const answerBtnClick = async (e) => {
   disableButtons();
   showCorrectAnswer();
   timerFunctions.pauseTimer();
-  sleep(1000);
+  await sleep(1000);
   timerFunctions.startTimer();
-  sleep(500);
+  await sleep(500);
   if (e.target.innerHTML !== questions[pageIndex].correct) currentTime -= 10;
   pageIndex++;
   if (!questions[pageIndex]) {
