@@ -18,7 +18,7 @@ export const questionPage = (question) => {
 export const resultsPage = (score) => {
     return `
     <section class="results-page">
-        <h1>Your final scores is ${score}</h1>
+        <h1>Your final score is ${score}</h1>
         <label for="initials">Enter your initials</label>
         <input type="text" id="initials" />
         <button class="button" id="submit-score-btn">Submit</button>
