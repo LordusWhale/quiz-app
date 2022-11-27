@@ -55,6 +55,7 @@ nav {
 }
 #theme {
     width: 30px;
+    cursor: pointer;
 }
 .time {
     visibility: hidden;
