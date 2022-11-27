@@ -25,3 +25,21 @@ export const resultsPage = (score) => {
     </section>
     `
 }
+
+export const scoresListPage = (userScores) => {
+    return `
+        ${userScores.map(score=>{
+            return `<li>${score.initials}: ${score.score}</li>`
+        }).join('')}
+    `
+} 
+
+export const homePage = () => {
+    return `
+    <section class="home-page">
+        <h1>Coding Quiz Challenge</h1>
+        <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+        <button class="button" id="start-quiz">Start Quiz</button>
+    </section>
+    `
+}

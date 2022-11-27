@@ -1,5 +1,5 @@
 import { questions } from "./data.js";
-import { questionPage, resultsPage } from "./pages.js";
+import { homePage, questionPage, resultsPage } from "./pages.js";
 import {addObjectToArrayLS} from "./localStorage.js";
 
 
@@ -69,6 +69,9 @@ const submitScore = (e) => {
     const initials = document.getElementById('initials').value;
     const newScore = {initials, score: currentTime};
     addObjectToArrayLS("score", newScore);
+    main.innerHTML = homePage();
+    const scoresPage = document.getElementById('scores-page');
+    scoresPage.style.visibility = "visible";
 }
 
 startQuizBtn.onclick = startQuiz;
