@@ -1,3 +1,6 @@
+import { questions } from "./data.js";
+import { questionPage } from "./pages.js";
+
 const startQuizBtn = document.getElementById('start-quiz');
 const time = document.getElementById('time');
 const timeContainer = document.getElementById('time-container');
@@ -21,7 +24,7 @@ const startQuiz = () => {
 }
 
 const showQuizPage = () => {
-    main.inner
+    main.innerHTML = questionPage(questions[0]);
 }
 
 
