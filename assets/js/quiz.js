@@ -9,8 +9,8 @@ const timeContainer = document.getElementById("time-container");
 const mainContainer = document.querySelector("main");
 
 // Default variables
-let currentTime = 75;
-let pageIndex = 0; // Used to iterate through questions array
+let currentTime;
+let pageIndex; // Used to iterate through questions array
 let timer;
 let questions; 
 let quiz;
@@ -39,6 +39,7 @@ const timerFunctions = {
 };
 // Start of quiz, called when pressing start quiz on main page
 export const startQuiz = (e, newQuiz = null) => {
+  resetGame();
   if (newQuiz){
     questions = newQuiz.questions
     quiz = newQuiz;
@@ -50,6 +51,12 @@ export const startQuiz = (e, newQuiz = null) => {
   timerFunctions.startTimer();
   showQuizPage();
 };
+
+function resetGame(){
+  pageIndex = 0;
+  currentTime = 75;
+  timerFunctions.stopTimer();
+}
 
 const showQuizPage = () => {
   mainContainer.innerHTML = ""
@@ -115,7 +122,6 @@ const submitScore = async (e) => {
   } else {
     const newScore = { initials, score: currentTime, id: createID("score"), quizId: quiz.id};
     addObjectToArrayLS("score", newScore);
-    resetVariables();
     mainContainer.innerHTML = homePage();
     const scoresPage = document.getElementById("scores-page");
     scoresPage.style.visibility = "visible";
@@ -124,10 +130,5 @@ const submitScore = async (e) => {
     startQuizBtn.onclick = startQuiz;
   }
 };
-
-function resetVariables() {
-  pageIndex = 0;
-  currentTime = 75;
-}
 
 startQuizBtn.onclick = startQuiz;
