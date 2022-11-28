@@ -9,11 +9,13 @@
     <script src="./assets/js/quiz.js" defer type="module"></script>
     <script src="./assets/js/showScores.js" defer type="module"></script>
     <script src="./assets/js/theme.js"></script>
+    <script src="./assets/js/addQuiz.js" defer></script>
 </head>
 <body>
     <header>
         <nav>
             <button id="show-scores-btn" class="nav-link">View high scores</button>
+            <button id="show-created-quiz-btn" class="nav-link">Quizes</button>
             <img src="./assets/images/dark.svg" id="theme" onclick="toggleTheme()"/>
         </nav>
         <p class="time" id="time-container">Time: <span id="time">75</span></p>
@@ -35,6 +37,22 @@
                 <button class="button" id="back-btn">Go back</button>
                 <button class="button" id="clear-btn">Clear Scores</button>
             </div>
+        </div>
+    </div>
+    <div class="created-quiz-page">
+        <!-- <div class="show-created-quiz">
+            <div>
+                <h1>Your quizes</h1>
+                <button id="create-quiz">Create Quiz</button>
+            </div>
+        
+            <ul>
+                <li>Quiz 1 <button>Delete</button></li>
+            </ul>
+            <button id="go-back-btn">Go back</button>
+        </div> -->
+        <div class="create-quiz">
+            
         </div>
     </div>
 </body>
