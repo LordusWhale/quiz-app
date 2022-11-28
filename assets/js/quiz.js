@@ -60,7 +60,7 @@ const answerBtnClick = async (e) => {
   timerFunctions.startTimer();
   await sleep(500);
   // Compares text value of button with correct value of question
-  if (e.target.innerHTML !== questions[pageIndex].correct) currentTime -= 10;
+  if (e.target.innerText !== questions[pageIndex].correct) currentTime -= 10;
   pageIndex++; // Changing to next question
   if (!questions[pageIndex]) {
     // If no more questions stop quiz
@@ -81,7 +81,7 @@ const showCorrectAnswer = () => {
   const allButtons = document.querySelectorAll(".button.answer-btn");
   allButtons.forEach((button) => {
     
-    if (button.innerHTML !== questions[pageIndex].correct) { 
+    if (button.innerText !== questions[pageIndex].correct) { 
       button.style.backgroundColor = "red";
     } else {
       button.style.backgroundColor = "green";

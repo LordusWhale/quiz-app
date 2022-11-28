@@ -31,3 +31,35 @@ export const questions = [
   },
 
 ];
+export const HTMLquestions = [
+  {
+    question: 'What does HTML stand for?',
+    answers: ['Hyperlinks and Text Markup Language', "Home Tool Markup Language", "Hyper Text Markup Language"],
+    correct: "Hyper Text Markup Language"
+  }, 
+  {
+    question: 'Who is making the web standards?', 
+    answers: ["The World Wide Web Consortium", "Google", "Mozilla", "Microsoft"],
+    correct: 'The World Wide Web Consortium'
+  }, 
+  {
+    question: "Choose the correct HTML element for the largest heading:",
+    answers: ["<h6>", "<heading>", "<h1>", "<head>"],
+    correct: "<h1>"
+  },
+  {
+    question: "What is the correct HTML element for inserting a line break?",
+    answers: ["<break>", "<br>", "<lb>"],
+    correct: "<br>"
+  },
+  {
+    question: "What is the correct HTML for making a checkbox?",
+    answers: ["<input type='check'>", "<input type='checkbox'>", "<checkbox>", "<check>"],
+    correct: "<input type='checkbox'>"
+  },
+  {
+    question: "What is the correct HTML for adding a background color?",
+    answers: ["<body bg='yellow>'", "<background>yellow></background>", "<body style='background-color:yellow;>"],
+    correct: "<body style='background-color:yellow;>"
+  }
+]
