@@ -9,7 +9,7 @@
     <script src="./assets/js/quiz.js" defer type="module"></script>
     <script src="./assets/js/showScores.js" defer type="module"></script>
     <script src="./assets/js/theme.js"></script>
-    <script src="./assets/js/addQuiz.js" defer></script>
+    <script src="./assets/js/showQuizes.js" defer></script>
 </head>
 <body>
     <header>
@@ -46,13 +46,54 @@
                 <button id="create-quiz">Create Quiz</button>
             </div>
         
-            <ul>
+            <ul id="quiz-list">
                 <li>Quiz 1 <button>Delete</button></li>
             </ul>
             <button id="go-back-btn">Go back</button>
-        </div> -->
+        </div>
         <div class="create-quiz">
-            
+            <h1>Create Quiz</h1>
+            <div>
+                <input type="text" placeholder="Title..." id="title">
+            </div>
+            <button>Add question</button>
+            <ul id="question-list">
+                <li>
+                    Question 1
+                    <button>Delete</button>
+                </li>
+            </ul>
+        </div> -->
+        <div class="add-quiz-form">
+            <form action="">
+                <input type="text" placeholder="Title of quiz.." name="" id="">
+                <input type="text" placeholder="Question one..." name="" id="q1">
+                <input type="text" placeholder="Question two..." name="" id="q2">
+                <input type="text" placeholder="Question three..." name="" id="q3">
+                <input type="text" placeholder="Question four..." name="" id="q4">
+                <div>
+                    <h1>Correct: </h1>
+                    <div>
+                        <label for="cq1">Question 1</label>
+                        <input type="checkbox" name="" data-id="q1" id="cq1">
+                    </div>
+                    <div>
+                        <label for="cq2">Question 2</label>
+                        <input type="checkbox" name="" data-id="q2" id="cq2">
+                    </div>
+                    <div>
+                        <label for="cq3">Question 3</label>
+                        <input type="checkbox" name="" data-id="q3" id="cq3">
+                    </div>
+                    <div>
+                        <label for="cq4">Question 4</label>
+                        <input type="checkbox" name="" data-id="q4" id="cq4">
+                    </div>
+                </div>
+                <button>Add question</button>
+                <button>Go back</button>
+               
+            </form>
         </div>
     </div>
 </body>

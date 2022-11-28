@@ -231,7 +231,7 @@ ul {
 */
 
 .created-quiz-page {
-    visibility: hidden;
+    visibility: visible;
     position: absolute;
     inset: 0;
     min-height: 100vh;
@@ -287,10 +287,88 @@ ul {
 }
 
 /*
-    Created quiz page
+    Create quiz page
 */
 
+.create-quiz {
+    width: 40%;
+    min-height: 90%;
+    background-color: var(--secondary);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+    gap: 30px;
+}
+.create-quiz > button {
+    width: 10em;
+    background-color: var(--primary);
+    border: none;
+    font-size: 1.3em;
+    padding: 1em 2em;
+    border-radius: 1.2em;
+}
+.create-quiz > div > input {
+    font-size: clamp(1rem, 2vw, 1.8rem);
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid black;
+    padding: 10px 0;
+    outline: none;
 
+}
+.create-quiz > ul {
+    width: 100%;
+    text-align: left;
+    padding: 2em;
+}
+.create-quiz > ul > li {
+    padding: 2em;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--primary);
+}
+
+/* 
+    Add quiz form
+*/
+
+.add-quiz-form {
+    background-color: var(--secondary);
+    width: 40%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.add-quiz-form > form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.add-quiz-form > form > input[type="text"] {
+    font-size: clamp(1rem, 2vw, 1.8rem);
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid black;
+    padding: 10px 0;
+    outline: none;
+}
+.add-quiz-form > form > div {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2em;
+    gap: 20px;
+}
+.add-quiz-form > form > button {
+
+    background-color: var(--primary);
+    border: none;
+    font-size: 1.3em;
+    padding: 1em 2em;
+    border-radius: 1.2em;
+}
 
 @media screen and (max-width: 900px) {
     .scores-container {
