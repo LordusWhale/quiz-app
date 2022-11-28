@@ -202,6 +202,12 @@ ul {
     flex-direction: column;
     gap: 20px;
 }
+ select {
+    background-color: var(--highlight);
+    font-size: 1.2em;
+    border: none;
+    padding: 1em 2em;
+}
 .scores-container > div >  button {
     padding: 10px 20px;
 }
@@ -224,6 +230,51 @@ ul {
     padding: 10px;
     color: white;
     font-size: 1.2rem;
+}
+
+/* 
+    Play quiz page
+*/
+.quiz-page {
+    visibility: hidden;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(53, 28, 117, 0.8);
+    display: grid;
+    place-items: center;
+}
+.quiz-page-container {
+    background-color: var(--primary);
+    width: 50%;
+    min-height: 50%;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.quiz-page-container > ul {
+    width: 100%;
+    text-align: left;
+    font-size: 1.2em;
+}
+.quiz-page-container > ul > li {
+    background-color: var(--highlight);
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.quiz-page-container > ul > li > button {
+    padding: 1em;
+    background-color: var(--primary);
+    border: none;
+    font-size: 1.2em;
+    border-radius: 10px;
 }
 
 @media screen and (max-width: 900px) {

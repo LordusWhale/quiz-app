@@ -1,4 +1,4 @@
-import { HTMLquestions as questions } from "./data/data.js";
+import {quizes} from "./data/data.js";
 import { homePage, questionPage, resultsPage } from "./lib/pages.js";
 import { addObjectToArrayLS } from "./lib/localStorage.js";
 import { showError, sleep, createID } from "./lib/functions.js";
@@ -12,6 +12,8 @@ const mainContainer = document.querySelector("main");
 let currentTime = 75;
 let pageIndex = 0; // Used to iterate through questions array
 let timer;
+let questions; 
+let quiz;
 const timerFunctions = {
   startTimer: () => {
     // Showing timer in HTML and subtracting one every second
@@ -36,7 +38,15 @@ const timerFunctions = {
   },
 };
 // Start of quiz, called when pressing start quiz on main page
-const startQuiz = () => {
+export const startQuiz = (e, newQuiz = null) => {
+  if (newQuiz){
+    questions = newQuiz.questions
+    quiz = newQuiz;
+  } else {
+    questions = quizes[0].questions;
+    quiz = quizes[0];
+  }
+  document.documentElement.setAttribute("data-quiz", quiz.id);
   timerFunctions.startTimer();
   showQuizPage();
 };
@@ -103,7 +113,7 @@ const submitScore = async (e) => {
   if (initials.length < 2) {
     await showError("Enter more than two letters");
   } else {
-    const newScore = { initials, score: currentTime, id: createID("score") };
+    const newScore = { initials, score: currentTime, id: createID("score"), quizId: quiz.id};
     addObjectToArrayLS("score", newScore);
     resetVariables();
     mainContainer.innerHTML = homePage();

@@ -9,11 +9,13 @@
     <script src="./assets/js/quiz.js" defer type="module"></script>
     <script src="./assets/js/showScores.js" defer type="module"></script>
     <script src="./assets/js/theme.js"></script>
+    <script src="./assets/js/newQuiz.js" type="module" defer></script>
 </head>
 <body>
     <header>
         <nav>
             <button id="show-scores-btn" class="nav-link">View high scores</button>
+            <button id="show-quizes-btn" class="nav-link">Quizes</button>
             <img src="./assets/images/dark.svg" id="theme" onclick="toggleTheme()"/>
         </nav>
         <p class="time" id="time-container">Time: <span id="time">75</span></p>
@@ -29,11 +31,24 @@
     <div class="scores-page" id="scores-page">
         <div class="scores-container">
             <h1>High scores</h1>
+            <select id="quiz-score" >
+            </select>
             <ul id="scores-list">
             </ul>
             <div>
                 <button class="button" id="back-btn">Go back</button>
                 <button class="button" id="clear-btn">Clear Scores</button>
+            </div>
+        </div>
+    </div>
+    <div class="quiz-page">
+        <div class="quiz-page-container">
+            <h1>Quizes</h1>
+            <ul id="quiz-list">
+                
+            </ul>
+            <div>
+                <button class="button" id="back-btn-quiz">Go back</button>
             </div>
         </div>
     </div>
