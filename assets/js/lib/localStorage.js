@@ -25,12 +25,8 @@ export const deleteAllLS = (lsKey) => {
   localStorage.setItem(lsKey, null);
 };
 
-// Create unique ID that can be used to delete.
-export const createID =(lsKey) => {
-  const ls = getObjectFromLS(lsKey);
-  if (!ls) return 0;
-  return ls.length;
-}
+
+
 
 export const getObjectFromLS = (lsKey) => {
   const ls = JSON.parse(localStorage.getItem(lsKey));

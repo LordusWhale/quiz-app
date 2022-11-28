@@ -45,7 +45,7 @@ const createScoreList = () => {
 }
 
 const onDelete = (e) => {
-    const id = parseInt(e.target.dataset.id);
+    const id = e.target.dataset.id;
     deleteObjectFromArray('score', id);
     createScoreList();
 }
