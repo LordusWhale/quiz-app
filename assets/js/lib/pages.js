@@ -5,20 +5,34 @@
 
 
 export const questionPage = (question) => {
-  return `
-<section class="card-container">
-    <div class="card">
-        <h1>${question.question}</h1>
-        <ul>
-            ${question.answers
-              .map((answer) => {
-                return `<li><button class="button answer-btn">${answer}</button></li>`;
-              })
-              .join("")}
-        </ul>
-    </div>
-</section>
-    `;
+    const section = document.createElement('section')
+    section.classList.add('card-container');
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    const title = document.createElement('h1');
+    title.innerText = question.question;
+
+    const ul = document.createElement('ul');
+
+    const questions = question.answers.map(q=>{
+        const newLi = document.createElement('li');
+        const button = document.createElement('button');
+        button.classList.add("button")
+        button.classList.add('answer-btn');
+        button.innerText = q;
+        newLi.appendChild(button);
+        return newLi;
+    })
+    questions.forEach(q=>{
+        ul.appendChild(q);
+    })
+
+    card.appendChild(title);
+    card.appendChild(ul);
+    section.appendChild(card);
+
+    return section;
 };
 
 export const resultsPage = (score) => {
@@ -33,11 +47,21 @@ export const resultsPage = (score) => {
 }
 
 export const scoresListPage = (userScores) => {
-    return `
-        ${userScores.map(score=>{
-            return `<li>${score.initials} - ${score.score} <button class="delete-score-btn" data-id="${score.id}">Delete</button></li>`
-        }).join('')}
-    `
+    const scoreElements = userScores.map(score=>{
+        const li = document.createElement('li');
+        li.innerText = `${score.initials} - ${score.score}`;
+
+        const button = document.createElement('button');
+        button.classList.add('delete-score-btn');
+        button.setAttribute('data-id', score.id)
+        button.innerText = "Delete";
+
+        li.appendChild(button);
+
+        return li;
+    })
+
+    return scoreElements;
 } 
 
 export const homePage = () => {

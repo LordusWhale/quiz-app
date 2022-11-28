@@ -1,4 +1,4 @@
-import { questions } from "./data/data.js";
+import { HTMLquestions as questions } from "./data/data.js";
 import { homePage, questionPage, resultsPage } from "./lib/pages.js";
 import { addObjectToArrayLS } from "./lib/localStorage.js";
 import { showError, sleep, createID } from "./lib/functions.js";
@@ -42,7 +42,8 @@ const startQuiz = () => {
 };
 
 const showQuizPage = () => {
-  mainContainer.innerHTML = questionPage(questions[pageIndex]); // Showing the questions to the main page
+  mainContainer.innerHTML = ""
+  mainContainer.appendChild(questionPage(questions[pageIndex])); // Showing the questions to the main page
 
   // Getting answer buttons and adding event listeners to check if correct
   const answerBtns = document.querySelectorAll(".button.answer-btn");

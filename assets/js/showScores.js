@@ -36,7 +36,11 @@ const createScoreList = () => {
     scores.sort((a, b)=>{
         return b.score-a.score;
     })
-    scoresList.innerHTML = scoresListPage(scores);
+    scoresList.innerHTML = "";
+    const scoreEls = scoresListPage(scores)
+    scoreEls.forEach(el=>{
+        scoresList.appendChild(el)
+    })
     // Delete single scores
     const deleteBtns = document.querySelectorAll('.delete-score-btn');
     deleteBtns.forEach(btn=>{
