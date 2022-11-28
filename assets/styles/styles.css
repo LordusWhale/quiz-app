@@ -297,8 +297,23 @@ ul {
     display: none;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     padding: 2em;
     gap: 30px;
+}
+.create-quiz > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.create-quiz > div > button {
+    width: 10em;
+    background-color: var(--primary);
+    border: none;
+    font-size: 1.3em;
+    padding: 1em 2em;
+    border-radius: 1.2em;
 }
 .create-quiz > button {
     width: 10em;
@@ -308,7 +323,7 @@ ul {
     padding: 1em 2em;
     border-radius: 1.2em;
 }
-.create-quiz > div > input {
+.create-quiz > div > div > input {
     font-size: clamp(1rem, 2vw, 1.8rem);
     border: none;
     background-color: transparent;
