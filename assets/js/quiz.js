@@ -1,7 +1,7 @@
 import { questions } from "./data/data.js";
 import { homePage, questionPage, resultsPage } from "./lib/pages.js";
-import { addObjectToArrayLS, createID } from "./lib/localStorage.js";
-import { showError, sleep } from "./lib/functions.js";
+import { addObjectToArrayLS } from "./lib/localStorage.js";
+import { showError, sleep, createID } from "./lib/functions.js";
 
 let startQuizBtn = document.getElementById("start-quiz");
 const time = document.getElementById("time");

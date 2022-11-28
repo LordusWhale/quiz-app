@@ -15,3 +15,9 @@ export const showError = async (message) => {
 export const sleep = async (time) => {
     await new Promise(r=>setTimeout(r, time));
 }
+
+// Create unique ID that can be used to delete.
+export const createID =() => {
+    const id = Date.now().toString(30);
+    return id;
+  }
