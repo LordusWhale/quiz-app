@@ -35,13 +35,12 @@ const createScoreList = (newScores = null) => {
     let scores = getObjectFromLS('score');
     if (!scores) return;
     if (newScores) scores = newScores;
-    if (currentQuiz && !newScores) {
+    if (currentQuiz && !newScores) {  // Used to set scores to the quiz currently being played
         scores = scores.filter((score=>{
             return score.quizId === parseInt(currentQuiz);
         }))
     } 
-    if (!newScores && !currentQuiz) {
-        console.log('a')
+    if (!newScores && !currentQuiz) { // Used if opening scores for the first time on load
         scores = scores.filter((score)=>{
             return score.quizId === 0;
         })
@@ -66,13 +65,13 @@ const createScoreList = (newScores = null) => {
 
 const createQuizScoreOption = () => {
     const currentQuiz = document.documentElement.dataset.quiz;
-    console.log(currentQuiz)
     changeQuizScore.innerHTML = "";
+    // Creating options to select scores for quiz
     const options = quizes.map(quiz=>{
         const optionEl = document.createElement('option');
         optionEl.innerText = quiz.title;
         optionEl.setAttribute('value', quiz.id);
-        if (quiz.id === parseInt(currentQuiz)) optionEl.setAttribute('selected', true);
+        if (quiz.id === parseInt(currentQuiz)) optionEl.setAttribute('selected', true); // Used to default to quiz currently being played
         return optionEl;
     })
     options.forEach(o=>{

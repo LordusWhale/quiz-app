@@ -17,7 +17,7 @@ goBackBtnQuiz.onclick = () => {
 }
 
 
-// <li>JavaScript Quiz<button class="play-quiz-btn" data-id="0">Play</button></li>
+// Adding a play button for every quiz
 const playQuizButtons = quizes.map(quiz=>{
     const li = document.createElement('li');
     li.innerHTML = quiz.title;
@@ -25,7 +25,7 @@ const playQuizButtons = quizes.map(quiz=>{
     button.innerText = "play";
     button.addEventListener('click', (e)=>{
         quizPageContainer.style.visibility = 'hidden';
-        startQuiz(e, quiz);
+        startQuiz(e, quiz); // Starting game on click
     })
     li.appendChild(button);
     return li;
