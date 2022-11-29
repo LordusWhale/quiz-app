@@ -48,7 +48,7 @@ header  {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    z-index: 10;
+    z-index: 1;
 }
 nav {
     display: flex;
@@ -98,7 +98,7 @@ nav {
 }
 
 main {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -196,10 +196,12 @@ ul {
     position: absolute;
     inset: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(53, 28, 117, 0.8);
+    min-height: 100%;
+    height: fit-content;
+    background-color: rgba(53, 28, 117, 1);
     display: grid;
     place-items: center;
+    z-index: 2;
 }
 .scores-container {
     background-color: var(--primary);
@@ -209,6 +211,7 @@ ul {
     align-items: center;
     text-align: center;
     padding: 2em;
+    margin: 50px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -247,6 +250,7 @@ ul {
     Play quiz page
 */
 .quiz-page {
+    z-index: 2;
     visibility: hidden;
     position: absolute;
     inset: 0;
