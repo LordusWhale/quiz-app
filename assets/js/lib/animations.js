@@ -1,5 +1,4 @@
 const observer = new IntersectionObserver((entries)=>{
-    console.log(entries)
     entries.forEach(e=>{
       if (e.isIntersecting) e.target.classList.add('in-view');
     })

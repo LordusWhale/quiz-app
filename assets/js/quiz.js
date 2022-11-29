@@ -14,7 +14,7 @@ let currentTime;
 let pageIndex; // Used to iterate through questions array
 let timer;
 let questions; 
-let quiz;
+let quizId; // Used to bind score to specific quiz
 const timerFunctions = {
   startTimer: () => {
     // Showing timer in HTML and subtracting one every second
@@ -43,12 +43,12 @@ export const startQuiz = (e, newQuiz = null) => {
   resetGame();
   if (newQuiz){
     questions = newQuiz.questions
-    quiz = newQuiz;
+    quizId = newQuiz.id;
   } else {
     questions = quizes[0].questions;
-    quiz = quizes[0];
+    quizId = quizes[0].id;
   }
-  document.documentElement.setAttribute("data-quiz", quiz.id);
+  document.documentElement.setAttribute("data-quiz", quizId);
   timerFunctions.startTimer();
   showQuizPage();
 };
@@ -124,7 +124,7 @@ const submitScore = async (e) => {
   if (initials.length < 2) {
     await showError("Enter more than two letters");
   } else {
-    const newScore = { initials, score: currentTime, id: createID("score"), quizId: quiz.id};
+    const newScore = { initials, score: currentTime, id: createID("score"), quizId};
     addObjectToArrayLS("score", newScore);
     mainContainer.innerHTML = homePage();
     const scoresPage = document.getElementById("scores-page");
