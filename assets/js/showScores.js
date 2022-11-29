@@ -56,7 +56,7 @@ const createScoreList = (newScores = null) => {
     scoreEls.forEach(el=>{
         scoresList.appendChild(el)
     })
-    animateScores(scoresList.children);
+    animateScores(scoresList.children); // Animating scores
     // Delete single scores
     const deleteBtns = document.querySelectorAll('.delete-score-btn');
     deleteBtns.forEach(btn=>{

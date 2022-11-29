@@ -51,10 +51,10 @@ export const scoresListPage = (userScores) => {
     const scoreElements = userScores.map(score=>{
         const li = document.createElement('li');
         li.innerText = `${score.initials} - ${score.score}`;
-        li.classList.add('observe');
+        li.classList.add('observe'); // Observer class used for animations
         const button = document.createElement('button');
         button.classList.add('delete-score-btn');
-        button.setAttribute('data-id', score.id)
+        button.setAttribute('data-id', score.id) // Used data attribute to delete by id
         button.innerText = "Delete";
 
         li.appendChild(button);
