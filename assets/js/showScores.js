@@ -1,6 +1,7 @@
 import { getObjectFromLS, deleteAllLS, deleteObjectFromArray } from "./lib/localStorage.js";
 import { scoresListPage } from "./lib/pages.js";
 import {quizes} from './data/data.js'
+import { animateCard, animateScores } from "./lib/animations.js";
 const scoresPage = document.getElementById('scores-page');
 const showScoresBtn = document.getElementById('show-scores-btn');
 const scoresList = document.getElementById('scores-list');
@@ -55,6 +56,7 @@ const createScoreList = (newScores = null) => {
     scoreEls.forEach(el=>{
         scoresList.appendChild(el)
     })
+    animateScores(scoresList.children);
     // Delete single scores
     const deleteBtns = document.querySelectorAll('.delete-score-btn');
     deleteBtns.forEach(btn=>{

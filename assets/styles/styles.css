@@ -48,6 +48,7 @@ header  {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    z-index: 10;
 }
 nav {
     display: flex;
@@ -122,14 +123,24 @@ main {
 /* 
     Quiz/card items
 */
+
 .card-container {
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+   
 }
-
+.observe {
+    opacity: 0;
+    transform:  translateX(-400px);
+    transition: all 1s;
+}
+.in-view {
+    opacity: 1;
+    transform: translateX(0);
+}
 .card {
     display: flex;
     flex-direction: column;

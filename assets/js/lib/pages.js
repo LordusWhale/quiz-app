@@ -7,6 +7,7 @@
 export const questionPage = (question) => {
     const section = document.createElement('section')
     section.classList.add('card-container');
+    section.classList.add('observe');
     const card = document.createElement('div');
     card.classList.add('card');
 
@@ -50,7 +51,7 @@ export const scoresListPage = (userScores) => {
     const scoreElements = userScores.map(score=>{
         const li = document.createElement('li');
         li.innerText = `${score.initials} - ${score.score}`;
-
+        li.classList.add('observe');
         const button = document.createElement('button');
         button.classList.add('delete-score-btn');
         button.setAttribute('data-id', score.id)
