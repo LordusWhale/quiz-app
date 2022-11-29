@@ -81,7 +81,13 @@ const answerBtnClick = async (e) => {
   timerFunctions.startTimer();
   await sleep(500);
   // Compares text value of button with correct value of question
-  if (e.target.innerText !== questions[pageIndex].correct) currentTime -= 10;
+  if (e.target.innerText !== questions[pageIndex].correct)  {
+    currentTime -= 10;
+    if (currentTime <= 0){
+      currentTime = 0;
+      endQuizPage()
+    }
+  } 
   pageIndex++; // Changing to next question
   if (!questions[pageIndex]) {
     // If no more questions stop quiz
